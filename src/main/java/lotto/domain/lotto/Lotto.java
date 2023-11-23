@@ -23,10 +23,10 @@ public final class Lotto {
         return new Lotto(numbers);
     }
 
-    private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
-        }
+    private void validate(final List<Integer> numbers) {
+        LottoValidator.validateDuplicateNumbers(numbers);
+        LottoValidator.validateLottoNumbersRange(numbers);
+        LottoValidator.validateNumbersLength(numbers);
     }
 
     public LottoDto toLottoDto() {
