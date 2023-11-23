@@ -7,7 +7,7 @@ import java.util.Set;
 
 public final class LottoGenerator {
 
-    private static Lotto generate() {
+    public static Lotto generate() {
         final Set<Integer> uniqueNumbers = new HashSet<>();
 
         while (uniqueNumbers.size() < Lotto.NUMBERS_LENGTH) {

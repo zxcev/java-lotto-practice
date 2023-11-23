@@ -7,13 +7,14 @@ public final class Lottos {
     private final List<Lotto> lottos;
 
     public Lottos(final List<Lotto> lottos) {
-        this.lottos = lottos.stream()
-                .sorted()
-                .toList();
+        this.lottos = lottos;
     }
 
     public LottosDto toLottosDto() {
-        // TODO
-        return null;
+        return new LottosDto(
+                lottos.stream()
+                        .map(Lotto::toLottoDto)
+                        .toList()
+        );
     }
 }
