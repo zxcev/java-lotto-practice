@@ -32,4 +32,14 @@ public final class Lotto {
     public LottoDto toLottoDto() {
         return new LottoDto(numbers);
     }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
+    public int calcMatchCount(final Lotto other) {
+        return (int) numbers.stream()
+                .filter(other.numbers::contains)
+                .count();
+    }
 }

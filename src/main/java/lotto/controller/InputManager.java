@@ -1,5 +1,7 @@
 package lotto.controller;
 
+import java.util.Arrays;
+import java.util.List;
 import lotto.domain.WinningLotto;
 import lotto.view.InputView;
 
@@ -17,6 +19,16 @@ public final class InputManager {
         final String bonusNumberInput = InputView.inputBonusNumber();
         InputValidator.validateWinningNumbersInput(winningNumbersInput);
         InputValidator.validateNumericInput(bonusNumberInput);
-        return WinningLotto.from(winningNumbersInput, bonusNumberInput);
+
+        return WinningLotto.from(
+                toChunks(winningNumbersInput),
+                Integer.parseInt(bonusNumberInput)
+        );
+    }
+
+    private static List<Integer> toChunks(final String lottoNumbers) {
+        return Arrays.stream(lottoNumbers.split(","))
+                .map((Integer::parseInt))
+                .toList();
     }
 }
