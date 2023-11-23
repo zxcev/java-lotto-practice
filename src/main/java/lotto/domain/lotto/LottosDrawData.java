@@ -41,14 +41,14 @@ public final class LottosDrawData {
                 getCountOf(LottoReward.SECOND),
                 getCountOf(LottoReward.THIRD),
                 getCountOf(LottoReward.FOURTH),
-                getCountOf(LottoReward.FIRST),
+                getCountOf(LottoReward.FIFTH),
                 calcTotalEarningReturn()
         );
     }
 
     private double calcTotalEarningReturn() {
-        final double earningReturn = totalPrizeAmount / totalPurchaseAmount * 100;
-        return Math.round(earningReturn * 10) / 10.0;
+        final double earningReturn = totalPrizeAmount / totalPurchaseAmount * 100.0;
+        return Math.round(earningReturn * 10.0) / 10.0;
     }
 
 }
