@@ -68,4 +68,20 @@ final class LottoValidatorTest {
                 .hasMessage(LottoValidator.DUPLICATE_MESSAGE);
     }
 
+    @DisplayName("보너스 번호가 중복인 경우 예외 발생")
+    @Test
+    void validateBonusNumber_withDuplicateNumbers_shouldThrow() {
+        // given
+        final List<Integer> lottoNumbers = List.of(
+                1, 2, 3, 4, 5, 6
+        );
+        final int bonusNumber = 1;
+        // when
+        // then
+        assertThatThrownBy(() ->
+                LottoValidator.validateBonusNumberDuplicate(lottoNumbers, bonusNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(LottoValidator.DUPLICATE_MESSAGE);
+    }
+
 }
