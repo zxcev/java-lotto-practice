@@ -1,5 +1,6 @@
 package lotto.domain.lotto;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -32,7 +33,18 @@ public final class LottoValidator {
         }
     }
 
-    private static void validateLottoNumberRange(final int lottoNumber) {
+    public static void validateBonusNumberDuplicate(
+            final List<Integer> lottoNumbers,
+            final int bonusNumber
+    ) {
+        final List<Integer> numbers = new ArrayList<>(lottoNumbers);
+        numbers.add(bonusNumber);
+
+        validateLottoNumberRange(bonusNumber);
+        validateDuplicateNumbers(numbers);
+    }
+
+    public static void validateLottoNumberRange(final int lottoNumber) {
         if (lottoNumber < Lotto.MIN_NUMBER || lottoNumber > Lotto.MAX_NUMBER) {
             throw new IllegalArgumentException(INVALID_RANGE_MESSAGE);
         }

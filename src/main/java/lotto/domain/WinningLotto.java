@@ -23,7 +23,7 @@ public final class WinningLotto {
             final int bonusNumberInput
     ) {
         final Lotto lotto = new Lotto(winningNumbers);
-        LottoValidator.validateLottoNumberRange(bonusNumberInput);
+        LottoValidator.validateBonusNumberDuplicate(winningNumbers, bonusNumberInput);
         return new WinningLotto(
                 lotto,
                 bonusNumberInput
