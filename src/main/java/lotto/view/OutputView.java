@@ -8,7 +8,7 @@ import lotto.controller.dto.LottosDto;
 public final class OutputView {
 
     public static void printPurchasedLottos(final LottosDto lottosDto) {
-        System.out.println("\n8개를 구매했습니다.");
+        System.out.printf("\n%d개를 구매했습니다.\n", lottosDto.lottoDtos().size());
         final String rendered = renderLottosDto(lottosDto);
         System.out.println(rendered);
     }
