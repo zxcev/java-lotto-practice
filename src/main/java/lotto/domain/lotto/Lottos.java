@@ -17,4 +17,8 @@ public final class Lottos {
                         .toList()
         );
     }
+
+    public List<Lotto> getLottos() {
+        return lottos;
+    }
 }
